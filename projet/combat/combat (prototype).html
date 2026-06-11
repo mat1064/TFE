@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      // class perso va rependre les information des perso //
+      class perso {
+        constructor(nom, vie, force) {
+          this.nom = nom;
+          this.vie = vie;
+          this.force = force;
+          this.agilite = agilite;
+        }
+// fonction attaquer avec un random qui determinera les degats des perso //
+        attaquer(cible) {
+          const degats = Math.floor(Math.random() * this.force);
+          cible.vie -= degats;
+          alert(this.nom +" attaque " +cible.nom +" et inflige " +degats +" degats.");
+        }
+      }
+//class heritage qui reprend un autre perso qui possèdera un tactique //
+      class titan extends perso {
+        constructor(nom, vie, force, tactique) {
+          super(nom, vie, force);
+          this.tactique = tactique;
+        }
+// idem pour attaquer mais sauf que cest un tac 
+        sort(cible) {
+          const degatstactique = Math.floor(Math.random() * this.tactique);
+          cible.vie -= degatstactique;
+          alert(
+            this.nom +" lance un sort sur " +cible.nom +" et inflige " +degatstactique +" degats.");
+        }
+      }
+//affiche les perso 
+      const perso1 = new perso("pilote", 100, 15);
+      const perso2 = new titan("titan", 100, 10, 20);
+// fonction combat qui va dépendre de la boucle while 
+//  la boucle va vérif si la vie sera inférieur ou = à 0 donc il affichera l'alert//
+      function combat() {
+        while (perso1.vie > 0 && perso2.vie > 0) {
+          perso1.attaquer(perso2);
+          if (perso2.vie <= 0) {
+            alert(perso2.nom + " est mort. " + perso1.nom + " a gagne");
+            return;
+          }
+
+          perso2.sort(perso1);
+          if (perso1.vie <= 0) {
+            alert(perso1.nom + " est mort. " + perso2.nom + " a gagne");
+            return;
+          }
+        }
+      }
+//affiche le combat//
+      combat();
+    </script>
+  </body>
+</html>

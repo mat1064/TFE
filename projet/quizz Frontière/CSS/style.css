@@ -1,0 +1,37 @@
+body {
+    background-image:url(../../IMAGES/img_quizz.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Le conteneur qui rend le texte lisible */
+.conteneur_quizz {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.6); /* fond semi-transparent */
+    border: 2px solid #00ffff; /* bord lumineux */
+    /* border-radius: 10px;  angles arrondis */
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff inset; /* effet lumineux externe et interne */
+    color: #ffffff;
+    font-family: 'Arial', sans-serif; /* ou une police futuriste */
+    backdrop-filter: blur(4px); /* flou en arrière-plan */
+    /* Pour un effet encore plus futuriste, ajouter un dégradé, une animation, etc. */
+}
+
+#audio-container {
+            display: none;
+        }
+
+/* On change la couleur des titres à l'intérieur du bloc */
+/*.conteneur-quizz h1 {
+    color: #ff9900;              Optionnel : une couleur orange qui rappelle bien Titanfall ! 
+    margin-bottom: 30px;
+}*/

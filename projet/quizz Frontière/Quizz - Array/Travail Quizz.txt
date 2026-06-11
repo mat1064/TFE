@@ -1,0 +1,8 @@
+- Réaliser un quizz 
+- Minimum 10 questions 
+- Les bonnes réponses sont dans un tableau
+- On donne le score et on corrige les mauvaises réponses
+
+
+
+Quizz sur les Pays
