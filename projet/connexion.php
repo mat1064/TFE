@@ -13,7 +13,7 @@ if(isset($_POST['envoi'])){
      $user = $stmt->fetch();
 
 
-if ($user && password_verify($password, $user['mdp']) && role_verify($user['role'])) {
+if ($user && password_verify($password, $user['mdp']) ) { //&& role_verify($user['role'])
     // Connexion réussie
     $_SESSION['id'] = $user['id'];
     $_SESSION['pseudo'] = $user['pseudo'];
