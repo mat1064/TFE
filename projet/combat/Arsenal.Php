@@ -9,7 +9,7 @@
 try
 {
 		// Connexion base de donnée
-	$bdd = new PDO('mysql:host=localhost;dbname=pokemonpoo;charset=utf8', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
 }
 catch(Exception $e)
 {
@@ -18,7 +18,7 @@ catch(Exception $e)
 }
 // Si tout va bien on peut continuer 
 // On récupère tout le contenu de la table
-$reponse = $bdd->query('SELECT * FROM Frontier');
+$reponse = $bdd->query('SELECT * FROM armurerie');
 
 // 
 

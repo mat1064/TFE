@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>test area</title>
+    <title>Jeu du 421</title>
+    <script>
+        function lancerDes() {
+            let des = [
+                Math.floor(Math.random() * 6) + 1,
+                Math.floor(Math.random() * 6) + 1,
+                Math.floor(Math.random() * 6) + 1
+            ];
+            des.sort();
+            return des;
+        }
+
+        function verifier421() {
+            const des = lancerDes();
+            console.log("Dés : " + des.join(", "));
+
+            if (des[0] === 1 && des[1] === 2 && des[2] === 4) {
+                alert("421 ! Gagné !");
+            } else {
+                alert("Perdu. Résultat : " + des.join(", "));
+            }
+        }
+
+        function sauvegarderScore(userId, score, gameName, jeu) {
+    fetch('save_score.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ user_id: userId, score: score, game_name: gameName, jeu: jeu })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'success') {
+            console.log('Score sauvegardé avec succès');
+        } else {
+            console.error('Erreur lors de la sauvegarde:', data.message);
+        }
+    })
+    .catch(error => console.error('Erreur fetch:', error));
+}
+    </script>
 </head>
-
 <body>
-
-    <script src="des 421.js"></script>
-
+    <h1>Jeu du 421</h1>
+    <button onclick="verifier421()">Lancer les dés</button>
 </body>
 </html>

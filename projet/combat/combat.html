@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Combat POO</title>
+<style>
+  #resultats {
+    white-space: pre-wrap;
+    background: #98611e;
+    padding: 10px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Escarmouche</h2>
+<button id="boutonCombat">Lancer le combat</button>
+<div id="resultats"></div>
+
+<script>
+  class perso {
+    constructor(nom, vie, force, agilite) {
+      this.nom = nom;
+      this.vie = vie;
+      this.force = force;
+      this.agilite = agilite;
+    }
+
+    attaquer(cible) {
+      const degats = Math.floor(Math.random() * this.force) + 1;
+      cible.vie -= degats;
+      return `${this.nom} attaque ${cible.nom} et inflige ${degats} dégâts.\n`;
+    }
+  }
+
+  class titan extends perso {
+    constructor(nom, vie, force, tactique) {
+      super(nom, vie, force, 10); // Exemple d'agilite par défaut
+      this.tactique = tactique;
+    }
+
+    sort(cible) {
+      const degatstactique = Math.floor(Math.random() * this.tactique) + 1;
+      cible.vie -= degatstactique;
+      return `${this.nom} utilise une technique sur ${cible.nom} et inflige ${degatstactique} dégâts.\n`;
+    }
+  }
+
+  function combat() {
+    const resultatDiv = document.getElementById('resultats');
+    resultatDiv.innerText = ''; // Reset
+
+    const perso1 = new perso("Pilote", 100, 15, 10);
+    const perso2 = new titan("Titan", 100, 10, 20);
+
+    let logs = '';
+
+    while (perso1.vie > 0 && perso2.vie > 0) {
+      logs += perso1.attaquer(perso2);
+      if (perso2.vie <= 0) {
+        logs += `${perso2.nom} est mort. ${perso1.nom} a gagné!\n`;
+        break;
+      }
+
+      logs += perso2.sort(perso1);
+      if (perso1.vie <= 0) {
+        logs += `${perso1.nom} est mort. ${perso2.nom} a gagné!\n`;
+        break;
+      }
+    }
+
+    resultatDiv.innerText = logs;
+  }
+
+  document.getElementById('boutonCombat').addEventListener('click', combat);
+</script>
+
+</body>
+</html>
