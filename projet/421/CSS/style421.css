@@ -1,0 +1,11 @@
+body {
+    background-image: url(../img_421/TF_Colony_Loadscreen.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Orbitron', 'Arial', sans-serif; /* police futuriste si disponible */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}

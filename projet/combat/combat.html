@@ -2,18 +2,54 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./CSS/Combat.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Combat POO</title>
-<style>
-  #resultats {
-    white-space: pre-wrap;
-    background: #98611e;
-    padding: 10px;
-    margin-top: 20px;
-  }
-</style>
+
+<script>
+  function lancerMusique() {
+        var audio = document.getElementById('audio-invisible');
+        if (audio) {
+            var promise = audio.play();
+            if (promise !== undefined) {
+                promise.then(() => {
+                    // La musique démarre, on peut cacher le bouton
+                    document.getElementById('start-music-btn').style.display = 'none';
+                }).catch(() => {
+                    alert("Cliquez pour lancer la musique");
+                });
+            }
+        }
+    }
+
+    // Au chargement du DOM, essayer de lancer la musique automatiquement
+    document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('audio-invisible');
+        if (audio) {
+            // Tentative automatique
+            var promise = audio.play();
+            if (promise !== undefined) {
+                promise.then(() => {
+                    // Si ça marche, cacher le bouton si il est là
+                    document.getElementById('start-music-btn').style.display = 'none';
+                }).catch(() => {
+                    // Si ça ne marche pas, laisser le bouton apparaître
+                    console.log("Lecture automatique bloquée, l'utilisateur doit cliquer pour démarrer.");
+                });
+            }
+        }
+    });
+</script>
 </head>
 <body>
+  <!-- Bouton discret pour démarrer la musique manuellement -->
+    <button id="start-music-btn" onclick="lancerMusique()">🎵 Démarrer la musique</button>
+
+    <!-- La balise audio invisible -->
+    <audio id="audio-invisible" loop>
+        <source src="../audio/When_Two_Sides_Go_to_War.mp3" type="audio/mpeg" />
+        Votre navigateur ne supporte pas la balise audio.
+    </audio>
 
 <h2>Escarmouche</h2>
 <button id="boutonCombat">Lancer le combat</button>

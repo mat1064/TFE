@@ -1,0 +1,106 @@
+/* Fond général avec une texture métallique ou un dégradé sombre */
+body {
+    background-image: url(../IMG_combat/TF_Ogre_Faceoff.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Orbitron', 'Arial', sans-serif; /* police futuriste si disponible */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titre stylisé */
+h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #e8eded;
+    text-shadow: 0 0 10px #3d4343, 0 0 20px #3d4141;
+    margin-top: 20px;
+}
+
+/* Conteneur combat - style industriel futuriste */
+.conteneur_combat {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background: rgba(20, 20, 20, 0.8); /* fond sombre semi-transparent */
+    border: 2px solid #00ffff; /* lignes lumineuses */
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff inset; /* glow lumineux */
+    border-radius: 15px;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    backdrop-filter: blur(4px);
+    /* Ajouts pour un look plus futuriste */
+    position: relative;
+}
+
+/* Bouton combat */
+#boutonCombat {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: linear-gradient(135deg, #00ffff, #006666);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff inset;
+    transition: all 0.3s ease;
+}
+
+#boutonCombat:hover {
+    background: linear-gradient(135deg, #00ffff, #008888);
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff inset;
+    transform: scale(1.05);
+}
+
+/* Résultats */
+#resultats {
+    white-space: pre-wrap;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    margin-top: 20px;
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ffff;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    color: #fff;
+    /* Ajoute un effet de défilement ou animation si souhaité */
+}
+
+/* Effet d'animation pour un style plus dynamique */
+@keyframes glitch {
+    0% {
+        transform: skew(0deg);
+    }
+    20% {
+        transform: skew(2deg);
+    }
+    40% {
+        transform: skew(-2deg);
+    }
+    60% {
+        transform: skew(1deg);
+    }
+    80% {
+        transform: skew(-1deg);
+    }
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+/* Appliquer l'animation à certains éléments si besoin */
+h2, #resultats {
+    animation: glitch 1s ease-in-out; /* pas de infinite ici */
+}
+
+#resultats {
+    white-space: pre-wrap;
+    background: rgba(255, 166, 0, 0.235); /* fond orange avec 30% d'opacité */
+    padding: 10px;
+    margin-top: 20px;
+  }
